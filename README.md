@@ -5,7 +5,7 @@ UIViewController-KeyboardAnimation
 Easy way to handle iOS keyboard showing/dismissing. 
 
 ## Introduction
-Working with iOS keyboard demands a lot of duplicated code. This category allows you to declare your animations with smooth keyboard animation timing and write very little code.
+Working with iOS keyboard demands a lot of duplicated code. This category allows you to declare your animations with smooth keyboard animation timing while writing very little code.
 
 ## Demo
 ![KeyboardAnimationDemo1](https://raw.githubusercontent.com/Just-/demo/master/an_kb_animation_demo.gif)
@@ -24,7 +24,7 @@ Then make autolayout constraint between your input bottom and superview botton i
 
     @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatInputBottomSpace;
 
-Then subscribe to keyboard in place you like (**viewWillAppear** is the best place really).
+Then subscribe to keyboard in the place you like (**viewWillAppear** is the best place really).
 
 ```
 @weakify(self)
@@ -37,7 +37,7 @@ Then subscribe to keyboard in place you like (**viewWillAppear** is the best pla
 
 That’s all! 
 
-**Don’t forget** to unsubscribe from keyboard events (**viewWillDisappear** is a my recommendation). Calling category method will do all “dirty” work for you.
+**Don’t forget** to unsubscribe from keyboard events (**viewWillDisappear** is my recommendation). Calling this category method will do all the “dirty” work for you.
 
     [self an_unsubscribeKeyboard];
 
@@ -75,9 +75,9 @@ For more complex behaviour (like in demo section) you can use extended API call 
 }];
 ```
 
-## Underhood
+## Under the hood
 
-This category registers/unregisters your view controller to **UIKeyboardWillShowNotification/UIKeyboardWillHideNotification**. Also it holds animation blocks, so you really need to provide weak reference to self (i use **@weakify/@strongify** from ReactiveCocoa dependency).
+This category registers/unregisters your view controller to **UIKeyboardWillShowNotification/UIKeyboardWillHideNotification**. Also it holds animation blocks, so you really need to provide weak reference to self (I use **@weakify/@strongify** from ReactiveCocoa dependency).
 
 ## Installation
 
