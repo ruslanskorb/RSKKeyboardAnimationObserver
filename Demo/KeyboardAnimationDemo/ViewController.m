@@ -61,12 +61,12 @@ static const CGFloat kButtonSpaceHided = 24.0f;
 {
     [super viewWillDisappear:animated];
     
-    [self an_unsubscribeKeyboard];
+    [self rsk_unsubscribeKeyboard];
 }
 
 - (void)subscribeToKeyboard
 {
-    [self an_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, NSTimeInterval duration, BOOL isShowing) {
+    [self rsk_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, NSTimeInterval duration, BOOL isShowing) {
         if (isShowing) {
             self.imageView.backgroundColor = kBackgroundColorShowed;
             self.tabBarBottomSpace.constant = CGRectGetHeight(keyboardRect);
