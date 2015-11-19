@@ -37,27 +37,35 @@
 
 static const CGFloat kButtonSpaceShowed = 90.0f;
 static const CGFloat kButtonSpaceHided = 24.0f;
+
 #define kBackgroundColorShowed [UIColor colorWithRed:0.27f green:0.85f blue:0.46f alpha:1.0f];
 #define kBackgroundColorHided [UIColor colorWithRed:0.18f green:0.67f blue:0.84f alpha:1.0f];
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
     self.imageView.backgroundColor = kBackgroundColorHided;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
+    
     [self subscribeToKeyboard];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated
+{
     [super viewWillDisappear:animated];
+    
     [self an_unsubscribeKeyboard];
 }
 
-- (void)subscribeToKeyboard {
+- (void)subscribeToKeyboard
+{
     [self an_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, NSTimeInterval duration, BOOL isShowing) {
         if (isShowing) {
             self.imageView.backgroundColor = kBackgroundColorShowed;
@@ -72,9 +80,11 @@ static const CGFloat kButtonSpaceHided = 24.0f;
     } completion:nil];
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
     if ([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
+        
         return NO;
     }
     
