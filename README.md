@@ -1,4 +1,4 @@
-## UIViewController+RSKKeyboardAnimation ![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/ruslanskorb/UIViewController-RSKKeyboardAnimation)
+## RSKKeyboardAnimationObserver ![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/ruslanskorb/RSKKeyboardAnimationObserver)
 
 Easy way to handle iOS keyboard showing/dismissing. 
 
@@ -10,32 +10,32 @@ Working with iOS keyboard demands a lot of duplicated code. This category allows
 ![KeyboardAnimationDemo2](https://raw.githubusercontent.com/Just-/demo/master/kb_anim_demo.gif)
 
 ## Installation
-*UIViewController+RSKKeyboardAnimation requires iOS 6.0 or later.*
+*RSKKeyboardAnimationObserver requires iOS 6.0 or later.*
 
 ### Using [CocoaPods](http://cocoapods.org)
 
-1.  Add the pod `UIViewController+RSKKeyboardAnimation` to your [Podfile](http://guides.cocoapods.org/using/the-podfile.html).
+1.  Add the pod `RSKKeyboardAnimationObserver` to your [Podfile](http://guides.cocoapods.org/using/the-podfile.html).
 
-        pod 'UIViewController+RSKKeyboardAnimation'
+        pod 'RSKKeyboardAnimationObserver'
 
 2.  Run `pod install` from Terminal, then open your app's `.xcworkspace` file to launch Xcode.
-3.  Import the `UIViewController+RSKKeyboardAnimation.h` header. Typically, this should be written as `#import <UIViewController+RSKKeyboardAnimation/UIViewController+RSKKeyboardAnimation.h>`
+3.  Import the `RSKKeyboardAnimationObserver.h` header. Typically, this should be written as `#import <RSKKeyboardAnimationObserver/RSKKeyboardAnimationObserver.h>`
 
 ### Using [Carthage](https://github.com/Carthage/Carthage)
 
-1.  Add the `ruslanskorb/UIViewController-RSKKeyboardAnimation` project to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
+1.  Add the `ruslanskorb/RSKKeyboardAnimationObserver` project to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
 
-        github "ruslanskorb/UIViewController-RSKKeyboardAnimation"
+        github "ruslanskorb/RSKKeyboardAnimationObserver"
 
 2.  Run `carthage update`, then follow the [additional steps required](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) to add the iOS and/or Mac frameworks into your project.
-3.  Import the UIViewController+RSKKeyboardAnimation framework/module.
-    *  Using Modules: `@import UIViewController+RSKKeyboardAnimation`
-    *  Without Modules: `#import <UIViewController+RSKKeyboardAnimation/UIViewController+RSKKeyboardAnimation.h>`
+3.  Import the RSKKeyboardAnimationObserver framework/module.
+    *  Using Modules: `@import RSKKeyboardAnimationObserver`
+    *  Without Modules: `#import <RSKKeyboardAnimationObserver/RSKKeyboardAnimationObserver.h>`
 
 ## Example
 Imagine that you need to implement chat-like input over keyboard. OK, import this category.
 
-    #import <UIViewController+RSKKeyboardAnimation/UIViewController+RSKKeyboardAnimation.h>
+    #import <RSKKeyboardAnimationObserver/RSKKeyboardAnimationObserver.h>
 
 Then make autolayout constraint between your input bottom and superview botton in *Interface Builder*, connect it with your view controller implementation through *IBOutlet*.
 
