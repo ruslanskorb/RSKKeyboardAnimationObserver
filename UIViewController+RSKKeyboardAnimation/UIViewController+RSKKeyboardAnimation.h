@@ -31,10 +31,33 @@
  Block to handle a start point of animation, could be used for simultaneous animations OR for setting some flags for internal usage.
 
  @param keyboardRectEnd  The end frame of the keyboard.
+ @param duration         Duration for keyboard change frame animation.
+*/
+typedef void(^RSKKeyboardBeforeWillChangeFrameAnimationBlock)(CGRect keyboardRectEnd, NSTimeInterval duration);
+
+/**
+ Block to handle a start point of animation, could be used for simultaneous animations OR for setting some flags for internal usage.
+
+ @param keyboardRectEnd  The end frame of the keyboard.
  @param duration         Duration for keyboard showing animation.
  @param isShowing        If isShowing is YES we will handle keyboard showing, if NO we will process keyboard dismissing.
 */
 typedef void(^RSKKeyboardBeforeWillShowOrHideAnimationBlock)(CGRect keyboardRectEnd, NSTimeInterval duration, BOOL isShowing);
+
+/**
+ Block which contains user defined animations.
+
+ @param keyboardRectEnd  The end frame of the keyboard.
+ @param duration         Duration for keyboard change frame animation.
+*/
+typedef void(^RSKKeyboardWillChangeFrameAnimationBlock)(CGRect keyboardRectEnd, NSTimeInterval duration);
+
+/**
+ Block to handle completion of keyboard animation.
+
+ @param finished If NO animation was canceled during performing.
+*/
+typedef void(^RSKKeyboardWillChangeFrameAnimationCompletionBlock)(BOOL finished);
 
 /**
  Block which contains user defined animations.
@@ -58,6 +81,21 @@ typedef void(^RSKKeyboardWillShowOrHideAnimationCompletionBlock)(BOOL finished, 
 
  @tip viewDidAppear is the best place to subscribe to keyboard events.
 
+ @param beforeWillChangeFrameAnimationBlock  Preanimation actions should be performed inside this block.
+ @param willChangeFrameAnimationBlock        User defined animations. If using auto layout don't forget to call layoutIfNeeded.
+ @param completionBlock                      User defined completion block, will be called when animation ends.
+
+ @warning These blocks will be holding inside UIViewController which calls it, so as with any block-style API avoid a retain cycle.
+*/
+- (void)rsk_subscribeKeyboardWithBeforeWillChangeFrameAnimation:(RSKKeyboardBeforeWillChangeFrameAnimationBlock)beforeWillChangeFrameAnimationBlock
+                                        willChangeFrameAnimation:(RSKKeyboardWillChangeFrameAnimationBlock)willChangeFrameAnimationBlock
+                                                      onComplete:(RSKKeyboardWillChangeFrameAnimationCompletionBlock)completionBlock;
+
+/**
+ Animation block will be called inside [UIView animateWithDuration:::::].
+
+ @tip viewDidAppear is the best place to subscribe to keyboard events.
+
  @param beforeWillShowOrHideAnimationBlock   Preanimation actions should be performed inside this block.
  @param willShowOrHideAnimationBlock         User defined animations. If using auto layout don't forget to call layoutIfNeeded.
  @param completionBlock                      User defined completion block, will be called when animation ends.
@@ -67,6 +105,19 @@ typedef void(^RSKKeyboardWillShowOrHideAnimationCompletionBlock)(BOOL finished, 
 - (void)rsk_subscribeKeyboardWithBeforeWillShowOrHideAnimation:(RSKKeyboardBeforeWillShowOrHideAnimationBlock)beforeWillShowOrHideAnimationBlock
                                         willShowOrHideAnimation:(RSKKeyboardWillShowOrHideAnimationBlock)willShowOrHideAnimationBlock
                                                      onComplete:(RSKKeyboardWillShowOrHideAnimationCompletionBlock)completionBlock;
+
+/**
+ Animation block will be called inside [UIView animateWithDuration:::::].
+
+ @tip viewDidAppear is the best place to subscribe to keyboard events.
+
+ @param willChangeFrameAnimationBlock    User defined animations. If using auto layout don't forget to call layoutIfNeeded.
+ @param completionBlock                  User defined completion block, will be called when animation ends.
+
+ @warning These blocks will be holding inside UIViewController which calls it, so as with any block-style API avoid a retain cycle.
+*/
+- (void)rsk_subscribeKeyboardWithWillChangeFrameAnimation:(RSKKeyboardWillChangeFrameAnimationBlock)willChangeFrameAnimationBlock
+                                                onComplete:(RSKKeyboardWillChangeFrameAnimationCompletionBlock)completionBlock;
 
 /**
  Animation block will be called inside [UIView animateWithDuration:::::].
