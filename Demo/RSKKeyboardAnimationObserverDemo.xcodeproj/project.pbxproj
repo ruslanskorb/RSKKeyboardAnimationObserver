@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3AFC41971A657A410057B5CA /* KeyboardAnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardAnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AFC41971A657A410057B5CA /* RSKKeyboardAnimationObserverDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSKKeyboardAnimationObserverDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B13BCB1BFDBC0900B5BF2B /* RSKKeyboardAnimationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSKKeyboardAnimationObserver.h; sourceTree = "<group>"; };
 		B8B13BCC1BFDBC0900B5BF2B /* UIViewController+RSKKeyboardAnimationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RSKKeyboardAnimationObserver.h"; sourceTree = "<group>"; };
 		B8B13BCD1BFDBC0900B5BF2B /* UIViewController+RSKKeyboardAnimationObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RSKKeyboardAnimationObserver.m"; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		3AFC41981A657A410057B5CA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3AFC41971A657A410057B5CA /* KeyboardAnimationDemo.app */,
+				3AFC41971A657A410057B5CA /* RSKKeyboardAnimationObserverDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,9 +115,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3AFC41961A657A410057B5CA /* KeyboardAnimationDemo */ = {
+		3AFC41961A657A410057B5CA /* RSKKeyboardAnimationObserverDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3AFC41BA1A657A420057B5CA /* Build configuration list for PBXNativeTarget "KeyboardAnimationDemo" */;
+			buildConfigurationList = 3AFC41BA1A657A420057B5CA /* Build configuration list for PBXNativeTarget "RSKKeyboardAnimationObserverDemo" */;
 			buildPhases = (
 				3AFC41931A657A410057B5CA /* Sources */,
 				3AFC41941A657A410057B5CA /* Frameworks */,
@@ -127,9 +127,9 @@
 			);
 			dependencies = (
 			);
-			name = KeyboardAnimationDemo;
+			name = RSKKeyboardAnimationObserverDemo;
 			productName = KeyboardAnimationDemo;
-			productReference = 3AFC41971A657A410057B5CA /* KeyboardAnimationDemo.app */;
+			productReference = 3AFC41971A657A410057B5CA /* RSKKeyboardAnimationObserverDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -159,7 +159,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3AFC41961A657A410057B5CA /* KeyboardAnimationDemo */,
+				3AFC41961A657A410057B5CA /* RSKKeyboardAnimationObserverDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -288,7 +288,7 @@
 				INFOPLIST_FILE = RSKKeyboardAnimationObserverDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ruslanskorb.KeyboardAnimationDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ruslanskorb.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -301,7 +301,7 @@
 				INFOPLIST_FILE = RSKKeyboardAnimationObserverDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ruslanskorb.KeyboardAnimationDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ruslanskorb.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -318,7 +318,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3AFC41BA1A657A420057B5CA /* Build configuration list for PBXNativeTarget "KeyboardAnimationDemo" */ = {
+		3AFC41BA1A657A420057B5CA /* Build configuration list for PBXNativeTarget "RSKKeyboardAnimationObserverDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3AFC41BB1A657A420057B5CA /* Debug */,
