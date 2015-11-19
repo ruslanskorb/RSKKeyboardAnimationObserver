@@ -26,28 +26,22 @@
 #import "UIViewController+RSKKeyboardAnimation.h"
 #import <objc/runtime.h>
 
-static void * RKSAnimationsBlockAssociationKey = &RKSAnimationsBlockAssociationKey;
-static void * RKSBeforeAnimationsBlockAssociationKey = &RKSBeforeAnimationsBlockAssociationKey;
-static void * RKSAnimationsCompletionBlockAssociationKey = &RKSAnimationsCompletionBlockAssociationKey;
+static void * RSKKeyboardBeforeWillShowOrHideAnimationBlockAssociationKey = &RSKKeyboardBeforeWillShowOrHideAnimationBlockAssociationKey;
+static void * RSKKeyboardWillShowOrHideAnimationBlockAssociationKey = &RSKKeyboardWillShowOrHideAnimationBlockAssociationKey;
+static void * RSKKeyboardWillShowOrHideAnimationCompletionBlockAssociationKey = &RSKKeyboardWillShowOrHideAnimationCompletionBlockAssociationKey;
 
 @implementation UIViewController (RSKKeyboardAnimation)
 
 #pragma mark - Public API
 
-- (void)rsk_subscribeKeyboardWithAnimations:(RKSAnimationsWithKeyboardBlock)animations
-                                 completion:(RKSCompletionKeyboardAnimations)completion
-{
-    [self rsk_subscribeKeyboardWithBeforeAnimations:nil animations:animations completion:completion];
-}
-
-- (void)rsk_subscribeKeyboardWithBeforeAnimations:(RKSBeforeAnimationsWithKeyboardBlock)beforeAnimations
-                                       animations:(RKSAnimationsWithKeyboardBlock)animations
-                                       completion:(RKSCompletionKeyboardAnimations)completion
+- (void)rsk_subscribeKeyboardWithBeforeWillShowOrHideAnimation:(RSKKeyboardBeforeWillShowOrHideAnimationBlock)beforeWillShowOrHideAnimationBlock
+                                       willShowOrHideAnimation:(RSKKeyboardWillShowOrHideAnimationBlock)willShowOrHideAnimationBlock
+                                                    onComplete:(RSKKeyboardWillShowOrHideAnimationCompletionBlock)completionBlock
 {
     // we shouldn't check for nil because it does nothing with nil
-    objc_setAssociatedObject(self, RKSBeforeAnimationsBlockAssociationKey, beforeAnimations, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    objc_setAssociatedObject(self, RKSAnimationsBlockAssociationKey, animations, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    objc_setAssociatedObject(self, RKSAnimationsCompletionBlockAssociationKey, completion, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, RSKKeyboardBeforeWillShowOrHideAnimationBlockAssociationKey, beforeWillShowOrHideAnimationBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, RSKKeyboardWillShowOrHideAnimationBlockAssociationKey, willShowOrHideAnimationBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, RSKKeyboardWillShowOrHideAnimationCompletionBlockAssociationKey, completionBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
     
     // subscribe to keyboard animations
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -61,13 +55,20 @@ static void * RKSAnimationsCompletionBlockAssociationKey = &RKSAnimationsComplet
                                                object:nil];
 }
 
+- (void)rsk_subscribeKeyboardWithWillShowOrHideAnimation:(RSKKeyboardWillShowOrHideAnimationBlock)willShowOrHideAnimationBlock
+                                              onComplete:(RSKKeyboardWillShowOrHideAnimationCompletionBlock)completionBlock
+{
+    [self rsk_subscribeKeyboardWithBeforeWillShowOrHideAnimation:nil willShowOrHideAnimation:willShowOrHideAnimationBlock onComplete:completionBlock];
+}
+
 - (void)rsk_unsubscribeKeyboard
 {
     // remove assotiated blocks
-    objc_setAssociatedObject(self, RKSAnimationsBlockAssociationKey, nil, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    objc_setAssociatedObject(self, RKSAnimationsCompletionBlockAssociationKey, nil, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, RSKKeyboardBeforeWillShowOrHideAnimationBlockAssociationKey, nil, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, RSKKeyboardWillShowOrHideAnimationBlockAssociationKey, nil, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    objc_setAssociatedObject(self, RSKKeyboardWillShowOrHideAnimationCompletionBlockAssociationKey, nil, OBJC_ASSOCIATION_COPY_NONATOMIC);
     
-    // unsubscribe from keyboard animations
+    // unsubscribe from keyboard notifications
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
@@ -76,36 +77,44 @@ static void * RKSAnimationsCompletionBlockAssociationKey = &RKSAnimationsComplet
 
 - (void)rsk_handleWillShowKeyboardNotification:(NSNotification *)notification
 {
-    [self rsk_keyboardWillShowHide:notification isShowing:YES];
+    [self rsk_handleKeyboardWillShowHideNotification:notification isShowing:YES];
 }
 
 - (void)rsk_handleWillHideKeyboardNotification:(NSNotification *)notification
 {
-    [self rsk_keyboardWillShowHide:notification isShowing:NO];
+    [self rsk_handleKeyboardWillShowHideNotification:notification isShowing:NO];
 }
 
-- (void)rsk_keyboardWillShowHide:(NSNotification *)notification isShowing:(BOOL)isShowing
+- (void)rsk_handleKeyboardWillShowHideNotification:(NSNotification *)notification isShowing:(BOOL)isShowing
 {
     // getting keyboard animation attributes
-    CGRect keyboardRect = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect keyboardRectEnd = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     UIViewAnimationCurve curve = [[notification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
     NSTimeInterval duration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
     // getting passed blocks
-    RKSAnimationsWithKeyboardBlock animationsBlock = objc_getAssociatedObject(self, RKSAnimationsBlockAssociationKey);
-    RKSBeforeAnimationsWithKeyboardBlock beforeAnimationsBlock = objc_getAssociatedObject(self, RKSBeforeAnimationsBlockAssociationKey);
-    RKSCompletionKeyboardAnimations completionBlock = objc_getAssociatedObject(self, RKSAnimationsCompletionBlockAssociationKey);
+    RSKKeyboardBeforeWillShowOrHideAnimationBlock beforeWillShowOrHideAnimationBlock = objc_getAssociatedObject(self, RSKKeyboardBeforeWillShowOrHideAnimationBlockAssociationKey);
+    RSKKeyboardWillShowOrHideAnimationBlock willShowOrHideAnimationBlock = objc_getAssociatedObject(self, RSKKeyboardWillShowOrHideAnimationBlockAssociationKey);
+    RSKKeyboardWillShowOrHideAnimationCompletionBlock completionBlock = objc_getAssociatedObject(self, RSKKeyboardWillShowOrHideAnimationCompletionBlockAssociationKey);
     
-    if (beforeAnimationsBlock) beforeAnimationsBlock(keyboardRect, duration, isShowing);
+    if (beforeWillShowOrHideAnimationBlock) {
+        beforeWillShowOrHideAnimationBlock(keyboardRectEnd, duration, isShowing);
+    }
     
     [UIView animateWithDuration:duration
                           delay:0
                         options:UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
                          [UIView setAnimationCurve:curve];
-                         if (animationsBlock) animationsBlock(keyboardRect, duration, isShowing);
+                         if (willShowOrHideAnimationBlock) {
+                             willShowOrHideAnimationBlock(keyboardRectEnd, duration, isShowing);
+                         }
                      }
-                     completion:completionBlock];
+                     completion:^(BOOL finished) {
+                         if (completionBlock) {
+                             completionBlock(finished, isShowing);
+                         }
+                     }];
 }
 
 @end

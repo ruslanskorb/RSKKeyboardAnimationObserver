@@ -66,10 +66,10 @@ static const CGFloat kButtonSpaceHided = 24.0f;
 
 - (void)subscribeToKeyboard
 {
-    [self rsk_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, NSTimeInterval duration, BOOL isShowing) {
+    [self rsk_subscribeKeyboardWithWillShowOrHideAnimation:^(CGRect keyboardRectEnd, NSTimeInterval duration, BOOL isShowing) {
         if (isShowing) {
             self.imageView.backgroundColor = kBackgroundColorShowed;
-            self.tabBarBottomSpace.constant = CGRectGetHeight(keyboardRect);
+            self.tabBarBottomSpace.constant = CGRectGetHeight(keyboardRectEnd);
             self.buttonBottomSpace.constant = kButtonSpaceShowed;
         } else {
             self.imageView.backgroundColor = kBackgroundColorHided;
@@ -77,7 +77,7 @@ static const CGFloat kButtonSpaceHided = 24.0f;
             self.buttonBottomSpace.constant = kButtonSpaceHided;
         }
         [self.view layoutIfNeeded];
-    } completion:nil];
+    } onComplete:nil];
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
