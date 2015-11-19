@@ -1,6 +1,4 @@
-UIViewController-KeyboardAnimation
-==================================
-![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)
+## UIViewController+RSKKeyboardAnimation ![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/ruslanskorb/UIViewController-RSKKeyboardAnimation)
 
 Easy way to handle iOS keyboard showing/dismissing. 
 
@@ -11,92 +9,102 @@ Working with iOS keyboard demands a lot of duplicated code. This category allows
 ![KeyboardAnimationDemo1](https://raw.githubusercontent.com/Just-/demo/master/an_kb_animation_demo.gif)
 ![KeyboardAnimationDemo2](https://raw.githubusercontent.com/Just-/demo/master/kb_anim_demo.gif)
 
-Try it yourself
+## Installation
+*UIViewController+RSKKeyboardAnimation requires iOS 6.0 or later.*
 
-`pod try UIViewController+KeyboardAnimation`
+### Using [CocoaPods](http://cocoapods.org)
+
+1.  Add the pod `UIViewController+RSKKeyboardAnimation` to your [Podfile](http://guides.cocoapods.org/using/the-podfile.html).
+
+        pod 'UIViewController+RSKKeyboardAnimation'
+
+2.  Run `pod install` from Terminal, then open your app's `.xcworkspace` file to launch Xcode.
+3.  Import the `UIViewController+RSKKeyboardAnimation.h` header. Typically, this should be written as `#import <UIViewController+RSKKeyboardAnimation/UIViewController+RSKKeyboardAnimation.h>`
+
+### Using [Carthage](https://github.com/Carthage/Carthage)
+
+1.  Add the `ruslanskorb/UIViewController-RSKKeyboardAnimation` project to your [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
+
+        github "ruslanskorb/UIViewController-RSKKeyboardAnimation"
+
+2.  Run `carthage update`, then follow the [additional steps required](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application) to add the iOS and/or Mac frameworks into your project.
+3.  Import the UIViewController+RSKKeyboardAnimation framework/module.
+    *  Using Modules: `@import UIViewController+RSKKeyboardAnimation`
+    *  Without Modules: `#import <UIViewController+RSKKeyboardAnimation/UIViewController+RSKKeyboardAnimation.h>`
 
 ## Example
 Imagine that you need to implement chat-like input over keyboard. OK, import this category.
 
-    #import <UIViewController+KeyboardAnimation.h>
+    #import <UIViewController+RSKKeyboardAnimation/UIViewController+RSKKeyboardAnimation.h>
 
 Then make autolayout constraint between your input bottom and superview botton in *Interface Builder*, connect it with your view controller implementation through *IBOutlet*.
 
     @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatInputBottomSpace;
 
-Then subscribe to keyboard in the place you like (**viewWillAppear** is the best place really).
+Then subscribe to keyboard in the place you like (**viewDidAppear** is the best place really).
 
 ```
-@weakify(self)
-[self an_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, NSTimeInterval duration, BOOL isShowing) {
-    @strongify(self)    
-    self.chatInputBottomSpace.constant = isShowing ?  CGRectGetHeight(keyboardRect) : 0;
-    [self.view layoutIfNeeded];
-} completion:nil];
+__weak typeof(self) weakSelf = self;
+[self rsk_subscribeKeyboardWithWillShowOrHideAnimation:^(CGRect keyboardRectEnd, NSTimeInterval duration, BOOL isShowing) {
+    __strong typeof(self) strongSelf = weakSelf;
+    if (strongSelf) {
+        strongSelf.chatInputBottomSpace.constant = isShowing ?  CGRectGetHeight(keyboardRectEnd) : 0;
+        [strongSelf.view layoutIfNeeded];
+    }
+} onComplete:nil];
 ```
 
 That’s all! 
 
-**Don’t forget** to unsubscribe from keyboard events (**viewWillDisappear** is my recommendation). Calling this category method will do all the “dirty” work for you.
+**Don’t forget** to unsubscribe from keyboard events (**viewDidDisappear** is my recommendation). Calling this category method will do all the “dirty” work for you.
 
-    [self an_unsubscribeKeyboard];
+    [self rsk_unsubscribeKeyboard];
 
 For more complex behaviour (like in demo section) you can use extended API call with **before animation** section.
 
 ```
-@weakify(self)
-[self an_subscribeKeyboardWithBeforeAnimations:^(CGRect keyboardRect, NSTimeInterval duration, BOOL isShowing) {
-    @strongify(self)
-    
-    self.isKeaboardAnimation = YES;
-    
-    [UIView transitionWithView:self.imageView duration:duration options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-        if (isShowing) {
-            self.imageView.image = [self.imageView.image applyLightEffect];
-        } else {
-            [self.imageView hnk_setImageFromURL:self.model.cardImageUrl];
-        }
-    } completion:nil];
-} animations:^(CGRect keyboardRect, NSTimeInterval duration, BOOL isShowing) {
-    @strongify(self)
-    
-    self.headerHeight.constant = isShowing ? kHeaderMinHeight :kHeaderMaxHeight;
-    self.panelSpace.constant = isShowing ?  CGRectGetHeight(keyboardRect) : 0;
-    
-    for (UIView* v in self.headerAlphaViews) {
-        v.alpha = isShowing ? 0.0f : 1.0f;
+__weak typeof(self) weakSelf = self;
+[self rsk_subscribeKeyboardWithBeforeWillShowOrHideAnimation:^(CGRect keyboardRectEnd, NSTimeInterval duration, BOOL isShowing) {
+    __strong typeof(self) strongSelf = weakSelf;
+    if (strongSelf) {
+        strongSelf.isKeaboardAnimation = YES;
+        
+        [UIView transitionWithView:strongSelf.imageView duration:duration options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+            if (isShowing) {
+                strongSelf.imageView.image = [strongSelf.imageView.image applyLightEffect];
+            } else {
+                [strongSelf.imageView hnk_setImageFromURL:strongSelf.model.cardImageUrl];
+            }
+        } completion:nil];
     }
-    
-    [self.view layoutIfNeeded];
-} completion:^(BOOL finished) {
-    @strongify(self)
-    
-    self.isKeaboardAnimation = NO;
+ } willShowOrHideAnimation:^(CGRect keyboardRectEnd, NSTimeInterval duration, BOOL isShowing) {
+    __strong typeof(self) strongSelf = weakSelf;
+    if (strongSelf) {
+        strongSelf.headerHeight.constant = isShowing ? kHeaderMinHeight : kHeaderMaxHeight;
+        strongSelf.panelSpace.constant = isShowing ?  CGRectGetHeight(keyboardRectEnd) : 0;
+        
+        for (UIView *v in strongSelf.headerAlphaViews) {
+            v.alpha = isShowing ? 0.0f : 1.0f;
+        }
+
+        [strongSelf.view layoutIfNeeded];
+    }
+} onComplete:^(BOOL finished, BOOL isShown) {
+    __strong typeof(self) strongSelf = weakSelf;
+    if (strongSelf) {
+        strongSelf.isKeaboardAnimation = NO;
+    }
 }];
 ```
 
-## Under the hood
+## Contact
 
-This category registers/unregisters your view controller to **UIKeyboardWillShowNotification/UIKeyboardWillHideNotification**. Also it holds animation blocks, so you really need to provide weak reference to self (I use **@weakify/@strongify** from ReactiveCocoa dependency).
+Ruslan Skorb
 
-## Installation
-
-Add the following to your [CocoaPods](http://cocoapods.org/) Podfile
-
-    pod 'UIViewController+KeyboardAnimation', '~> 1.2'
-
-or clone as a git submodule,
-
-or just copy files
+- http://github.com/ruslanskorb
+- http://twitter.com/ruslanskorb
+- ruslan.skorb@gmail.com
 
 ## License
 
-All this code is available under the MIT license.
-
-## Contact
-
-Follow me on [Twitter](https://twitter.com/Anton_Gaenko) or [Github](https://github.com/Just-)
-
-## More sources 
-
-Simple category to show loading status in a navigation bar (left/right items or title) [UINavigationItem-Loading](https://github.com/Just-/UINavigationItem-Loading)
+This project is is available under the MIT license. See the LICENSE file for more info. Attribution by linking to the [project page](https://github.com/ruslanskorb/RSKImageCropper) is appreciated.
