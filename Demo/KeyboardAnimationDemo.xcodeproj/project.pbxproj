@@ -116,7 +116,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = "Anton Gaenko";
+				ORGANIZATIONNAME = "Ruslan Skorb";
 				TargetAttributes = {
 					3AFC41961A657A410057B5CA = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -264,7 +264,7 @@
 				INFOPLIST_FILE = KeyboardAnimationDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "co.mobiboss.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ruslanskorb.KeyboardAnimationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -277,7 +277,7 @@
 				INFOPLIST_FILE = KeyboardAnimationDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "co.mobiboss.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ruslanskorb.KeyboardAnimationDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
