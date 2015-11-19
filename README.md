@@ -107,4 +107,4 @@ Ruslan Skorb
 
 ## License
 
-This project is is available under the MIT license. See the LICENSE file for more info. Attribution by linking to the [project page](https://github.com/ruslanskorb/RSKImageCropper) is appreciated.
+This project is is available under the MIT license. See the LICENSE file for more info. Attribution by linking to the [project page](https://github.com/ruslanskorb/RSKKeyboardAnimationObserver) is appreciated.
