@@ -56,7 +56,7 @@ typedef void(^RSKKeyboardWillShowOrHideAnimationCompletionBlock)(BOOL finished, 
 /**
  Animation block will be called inside [UIView animateWithDuration:::::].
 
- @tip viewWillAppear is the best place to subscribe to keyboard events.
+ @tip viewDidAppear is the best place to subscribe to keyboard events.
 
  @param beforeWillShowOrHideAnimationBlock   Preanimation actions should be performed inside this block.
  @param willShowOrHideAnimationBlock         User defined animations. If using auto layout don't forget to call layoutIfNeeded.
@@ -71,7 +71,7 @@ typedef void(^RSKKeyboardWillShowOrHideAnimationCompletionBlock)(BOOL finished, 
 /**
  Animation block will be called inside [UIView animateWithDuration:::::].
 
- @tip viewWillAppear is the best place to subscribe to keyboard events.
+ @tip viewDidAppear is the best place to subscribe to keyboard events.
 
  @param willShowOrHideAnimationBlock User defined animations. If using auto layout don't forget to call layoutIfNeeded.
  @param completionBlock              User defined completion block, will be called when animation ends.
@@ -85,7 +85,7 @@ typedef void(^RSKKeyboardWillShowOrHideAnimationCompletionBlock)(BOOL finished, 
 
  Call it to unsubscribe from keyboard events and clean all animations and completion blocks.
 
- @tip viewWillDisappear is the best place to call it.
+ @tip viewDidDisappear is the best place to call it.
 
  @warning If you will not call it when current view disappeared, subscribed view controller will handle keyboard events on other screens.
 */
