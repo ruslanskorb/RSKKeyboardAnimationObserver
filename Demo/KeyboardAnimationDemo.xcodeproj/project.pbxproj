@@ -10,9 +10,10 @@
 		3AFC419D1A657A410057B5CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFC419C1A657A410057B5CA /* main.m */; };
 		3AFC41A01A657A410057B5CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFC419F1A657A410057B5CA /* AppDelegate.m */; };
 		3AFC41A31A657A410057B5CA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFC41A21A657A410057B5CA /* ViewController.m */; };
-		3AFC41A61A657A410057B5CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AFC41A41A657A410057B5CA /* Main.storyboard */; };
 		3AFC41A81A657A410057B5CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AFC41A71A657A410057B5CA /* Images.xcassets */; };
 		B8B13BCE1BFDBC0900B5BF2B /* UIViewController+RSKKeyboardAnimationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B13BCD1BFDBC0900B5BF2B /* UIViewController+RSKKeyboardAnimationObserver.m */; settings = {ASSET_TAGS = (); }; };
+		B8B13BD01BFDBF3B00B5BF2B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B13BCF1BFDBF3B00B5BF2B /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
+		B8B13BD51BFDC00800B5BF2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B13BD31BFDC00800B5BF2B /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +24,12 @@
 		3AFC419F1A657A410057B5CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3AFC41A11A657A410057B5CA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3AFC41A21A657A410057B5CA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3AFC41A51A657A410057B5CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3AFC41A71A657A410057B5CA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B8B13BCB1BFDBC0900B5BF2B /* RSKKeyboardAnimationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSKKeyboardAnimationObserver.h; sourceTree = "<group>"; };
 		B8B13BCC1BFDBC0900B5BF2B /* UIViewController+RSKKeyboardAnimationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RSKKeyboardAnimationObserver.h"; sourceTree = "<group>"; };
 		B8B13BCD1BFDBC0900B5BF2B /* UIViewController+RSKKeyboardAnimationObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RSKKeyboardAnimationObserver.m"; sourceTree = "<group>"; };
+		B8B13BCF1BFDBF3B00B5BF2B /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		B8B13BD41BFDC00800B5BF2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +67,8 @@
 				3AFC419F1A657A410057B5CA /* AppDelegate.m */,
 				3AFC41A11A657A410057B5CA /* ViewController.h */,
 				3AFC41A21A657A410057B5CA /* ViewController.m */,
-				3AFC41A41A657A410057B5CA /* Main.storyboard */,
+				B8B13BCF1BFDBF3B00B5BF2B /* LaunchScreen.xib */,
+				B8B13BD31BFDC00800B5BF2B /* Main.storyboard */,
 				3AFC41A71A657A410057B5CA /* Images.xcassets */,
 				3AFC419A1A657A410057B5CA /* Supporting Files */,
 			);
@@ -157,8 +160,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AFC41A61A657A410057B5CA /* Main.storyboard in Resources */,
+				B8B13BD01BFDBF3B00B5BF2B /* LaunchScreen.xib in Resources */,
 				3AFC41A81A657A410057B5CA /* Images.xcassets in Resources */,
+				B8B13BD51BFDC00800B5BF2B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,10 +183,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3AFC41A41A657A410057B5CA /* Main.storyboard */ = {
+		B8B13BD31BFDC00800B5BF2B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3AFC41A51A657A410057B5CA /* Base */,
+				B8B13BD41BFDC00800B5BF2B /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
