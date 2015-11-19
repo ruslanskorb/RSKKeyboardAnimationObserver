@@ -50,14 +50,14 @@ static const CGFloat kButtonSpaceHided = 24.0f;
     self.imageView.backgroundColor = kBackgroundColorHided;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
     [self subscribeToKeyboard];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
+- (void)viewDidDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
