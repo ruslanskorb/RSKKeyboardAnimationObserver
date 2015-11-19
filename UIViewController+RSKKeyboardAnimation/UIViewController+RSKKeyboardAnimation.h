@@ -1,5 +1,5 @@
 //
-// UIViewController+KeyboardAnimation.h
+// UIViewController+RSKKeyboardAnimation.h
 //
 // Copyright (c) 2015 Anton Gaenko
 // Permission is hereby granted, free of charge, to any person obtaining a copy

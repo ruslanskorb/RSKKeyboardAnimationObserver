@@ -1,5 +1,5 @@
 //
-// UIViewController+KeyboardAnimation.m
+// UIViewController+RSKKeyboardAnimation.m
 //
 // Copyright (c) 2015 Anton Gaenko
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "UIViewController+KeyboardAnimation.h"
+#import "UIViewController+RSKKeyboardAnimation.h"
 #import <objc/runtime.h>
 
 static void *ANAnimationsBlockAssociationKey = &ANAnimationsBlockAssociationKey;
