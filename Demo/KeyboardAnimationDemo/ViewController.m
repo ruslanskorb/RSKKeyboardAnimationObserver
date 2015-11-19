@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "UIViewController+KeyboardAnimation.h"
+#import "UIViewController+RSKKeyboardAnimation.h"
 
 @interface ViewController ()
 
