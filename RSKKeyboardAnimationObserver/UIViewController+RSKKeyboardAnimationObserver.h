@@ -1,5 +1,5 @@
 //
-// UIViewController+RSKKeyboardAnimation.h
+// UIViewController+RSKKeyboardAnimationObserver.h
 //
 // Copyright (c) 2015 Anton Gaenko
 // Copyright (c) 2015-present Ruslan Skorb, http://ruslanskorb.com/
@@ -25,7 +25,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (RSKKeyboardAnimation)
+@interface UIViewController (RSKKeyboardAnimationObserver)
 
 /**
  Block to handle a start point of animation, could be used for simultaneous animations OR for setting some flags for internal usage.

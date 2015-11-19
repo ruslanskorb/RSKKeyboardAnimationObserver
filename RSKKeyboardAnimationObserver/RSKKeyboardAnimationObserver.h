@@ -35,4 +35,4 @@ FOUNDATION_EXPORT double RSKKeyboardAnimationObserverVersionNumber;
 //! Project version string for RSKKeyboardAnimationObserver.
 FOUNDATION_EXPORT const unsigned char RSKKeyboardAnimationObserverVersionString[];
 
-#import <RSKKeyboardAnimationObserver/UIViewController+RSKKeyboardAnimation.h>
+#import <RSKKeyboardAnimationObserver/UIViewController+RSKKeyboardAnimationObserver.h>

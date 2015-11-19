@@ -1,5 +1,5 @@
 //
-// UIViewController+RSKKeyboardAnimation.m
+// UIViewController+RSKKeyboardAnimationObserver.m
 //
 // Copyright (c) 2015 Anton Gaenko
 // Copyright (c) 2015-present Ruslan Skorb, http://ruslanskorb.com/
@@ -23,7 +23,7 @@
 // THE SOFTWARE.
 //
 
-#import "UIViewController+RSKKeyboardAnimation.h"
+#import "UIViewController+RSKKeyboardAnimationObserver.h"
 #import <objc/runtime.h>
 
 static void * RSKKeyboardBeforeWillChangeFrameAnimationBlockAssociationKey = &RSKKeyboardBeforeWillChangeFrameAnimationBlockAssociationKey;
@@ -33,7 +33,7 @@ static void * RSKKeyboardWillChangeFrameAnimationCompletionBlockAssociationKey =
 static void * RSKKeyboardWillShowOrHideAnimationBlockAssociationKey = &RSKKeyboardWillShowOrHideAnimationBlockAssociationKey;
 static void * RSKKeyboardWillShowOrHideAnimationCompletionBlockAssociationKey = &RSKKeyboardWillShowOrHideAnimationCompletionBlockAssociationKey;
 
-@implementation UIViewController (RSKKeyboardAnimation)
+@implementation UIViewController (RSKKeyboardAnimationObserver)
 
 #pragma mark - Public API
 

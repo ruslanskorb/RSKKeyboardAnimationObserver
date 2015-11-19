@@ -24,7 +24,7 @@
 //
 
 #import "ViewController.h"
-#import "UIViewController+RSKKeyboardAnimation.h"
+#import "UIViewController+RSKKeyboardAnimationObserver.h"
 
 @interface ViewController ()
 
