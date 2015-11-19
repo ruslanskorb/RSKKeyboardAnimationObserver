@@ -35,15 +35,19 @@ Working with iOS keyboard demands a lot of duplicated code. This category allows
 ## Example
 Imagine that you need to implement chat-like input over keyboard. OK, import this category.
 
-    #import <RSKKeyboardAnimationObserver/RSKKeyboardAnimationObserver.h>
+``` objective-c
+#import <RSKKeyboardAnimationObserver/RSKKeyboardAnimationObserver.h>
+```
 
 Then make autolayout constraint between your input bottom and superview botton in *Interface Builder*, connect it with your view controller implementation through *IBOutlet*.
 
-    @property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatInputBottomSpace;
+``` objective-c
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatInputBottomSpace;
+```
 
 Then subscribe to keyboard in the place you like (**viewDidAppear** is the best place really).
 
-```
+``` objective-c
 __weak typeof(self) weakSelf = self;
 [self rsk_subscribeKeyboardWithWillShowOrHideAnimation:^(CGRect keyboardRectEnd, NSTimeInterval duration, BOOL isShowing) {
     __strong typeof(self) strongSelf = weakSelf;
@@ -62,7 +66,7 @@ That’s all!
 
 For more complex behaviour (like in demo section) you can use extended API call with **before animation** section.
 
-```
+``` objective-c
 __weak typeof(self) weakSelf = self;
 [self rsk_subscribeKeyboardWithBeforeWillShowOrHideAnimation:^(CGRect keyboardRectEnd, NSTimeInterval duration, BOOL isShowing) {
     __strong typeof(self) strongSelf = weakSelf;
