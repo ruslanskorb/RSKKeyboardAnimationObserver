@@ -66,17 +66,21 @@ static const CGFloat kButtonSpaceHided = 24.0f;
 
 - (void)subscribeToKeyboard
 {
+    __weak typeof(self) weakSelf = self;
     [self rsk_subscribeKeyboardWithWillShowOrHideAnimation:^(CGRect keyboardRectEnd, NSTimeInterval duration, BOOL isShowing) {
-        if (isShowing) {
-            self.imageView.backgroundColor = kBackgroundColorShowed;
-            self.tabBarBottomSpace.constant = CGRectGetHeight(keyboardRectEnd);
-            self.buttonBottomSpace.constant = kButtonSpaceShowed;
-        } else {
-            self.imageView.backgroundColor = kBackgroundColorHided;
-            self.tabBarBottomSpace.constant = 0.0f;
-            self.buttonBottomSpace.constant = kButtonSpaceHided;
+        __strong typeof(self) strongSelf = weakSelf;
+        if (strongSelf) {
+            if (isShowing) {
+                strongSelf.imageView.backgroundColor = kBackgroundColorShowed;
+                strongSelf.tabBarBottomSpace.constant = CGRectGetHeight(keyboardRectEnd);
+                strongSelf.buttonBottomSpace.constant = kButtonSpaceShowed;
+            } else {
+                strongSelf.imageView.backgroundColor = kBackgroundColorHided;
+                strongSelf.tabBarBottomSpace.constant = 0.0f;
+                strongSelf.buttonBottomSpace.constant = kButtonSpaceHided;
+            }
+            [strongSelf.view layoutIfNeeded];
         }
-        [self.view layoutIfNeeded];
     } onComplete:nil];
 }
 
