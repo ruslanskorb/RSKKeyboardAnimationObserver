@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B8B13BBE1BFDB6CD00B5BF2B /* UIViewController+RSKKeyboardAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = B8B13BBC1BFDB6CD00B5BF2B /* UIViewController+RSKKeyboardAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B8B13BBF1BFDB6CD00B5BF2B /* UIViewController+RSKKeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B13BBD1BFDB6CD00B5BF2B /* UIViewController+RSKKeyboardAnimation.m */; settings = {ASSET_TAGS = (); }; };
-		B8B13BC31BFDB9B500B5BF2B /* RSKKeyboardAnimationObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = B8B13BC21BFDB9B500B5BF2B /* RSKKeyboardAnimationObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8B13BC71BFDBBD100B5BF2B /* RSKKeyboardAnimationObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = B8B13BC41BFDBBD100B5BF2B /* RSKKeyboardAnimationObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8B13BC81BFDBBD100B5BF2B /* UIViewController+RSKKeyboardAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = B8B13BC51BFDBBD100B5BF2B /* UIViewController+RSKKeyboardAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8B13BC91BFDBBD100B5BF2B /* UIViewController+RSKKeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B13BC61BFDBBD100B5BF2B /* UIViewController+RSKKeyboardAnimation.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A5BE393D1B32B49D00ECDF88 /* RSKKeyboardAnimationObserver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RSKKeyboardAnimationObserver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85EF7ED1B88DB2000222FF7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Framework/Info.plist; sourceTree = "<group>"; };
-		B8B13BBC1BFDB6CD00B5BF2B /* UIViewController+RSKKeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+RSKKeyboardAnimation.h"; path = "UIViewController+RSKKeyboardAnimation/UIViewController+RSKKeyboardAnimation.h"; sourceTree = "<group>"; };
-		B8B13BBD1BFDB6CD00B5BF2B /* UIViewController+RSKKeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+RSKKeyboardAnimation.m"; path = "UIViewController+RSKKeyboardAnimation/UIViewController+RSKKeyboardAnimation.m"; sourceTree = "<group>"; };
-		B8B13BC21BFDB9B500B5BF2B /* RSKKeyboardAnimationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSKKeyboardAnimationObserver.h; path = "UIViewController+RSKKeyboardAnimation/RSKKeyboardAnimationObserver.h"; sourceTree = "<group>"; };
+		B8B13BC41BFDBBD100B5BF2B /* RSKKeyboardAnimationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSKKeyboardAnimationObserver.h; path = RSKKeyboardAnimationObserver/RSKKeyboardAnimationObserver.h; sourceTree = "<group>"; };
+		B8B13BC51BFDBBD100B5BF2B /* UIViewController+RSKKeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+RSKKeyboardAnimation.h"; path = "RSKKeyboardAnimationObserver/UIViewController+RSKKeyboardAnimation.h"; sourceTree = "<group>"; };
+		B8B13BC61BFDBBD100B5BF2B /* UIViewController+RSKKeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+RSKKeyboardAnimation.m"; path = "RSKKeyboardAnimationObserver/UIViewController+RSKKeyboardAnimation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,9 +50,9 @@
 		A5BE39AD1B32BAAC00ECDF88 /* RSKKeyboardAnimationObserver */ = {
 			isa = PBXGroup;
 			children = (
-				B8B13BC21BFDB9B500B5BF2B /* RSKKeyboardAnimationObserver.h */,
-				B8B13BBC1BFDB6CD00B5BF2B /* UIViewController+RSKKeyboardAnimation.h */,
-				B8B13BBD1BFDB6CD00B5BF2B /* UIViewController+RSKKeyboardAnimation.m */,
+				B8B13BC41BFDBBD100B5BF2B /* RSKKeyboardAnimationObserver.h */,
+				B8B13BC51BFDBBD100B5BF2B /* UIViewController+RSKKeyboardAnimation.h */,
+				B8B13BC61BFDBBD100B5BF2B /* UIViewController+RSKKeyboardAnimation.m */,
 				A5BE39CA1B32BAFA00ECDF88 /* Supporting Files */,
 			);
 			name = RSKKeyboardAnimationObserver;
@@ -73,8 +73,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8B13BBE1BFDB6CD00B5BF2B /* UIViewController+RSKKeyboardAnimation.h in Headers */,
-				B8B13BC31BFDB9B500B5BF2B /* RSKKeyboardAnimationObserver.h in Headers */,
+				B8B13BC81BFDBBD100B5BF2B /* UIViewController+RSKKeyboardAnimation.h in Headers */,
+				B8B13BC71BFDBBD100B5BF2B /* RSKKeyboardAnimationObserver.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8B13BBF1BFDB6CD00B5BF2B /* UIViewController+RSKKeyboardAnimation.m in Sources */,
+				B8B13BC91BFDBBD100B5BF2B /* UIViewController+RSKKeyboardAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
