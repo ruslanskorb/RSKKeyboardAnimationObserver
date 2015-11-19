@@ -7,29 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3AFC419D1A657A410057B5CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFC419C1A657A410057B5CA /* main.m */; };
-		3AFC41A01A657A410057B5CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFC419F1A657A410057B5CA /* AppDelegate.m */; };
-		3AFC41A31A657A410057B5CA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AFC41A21A657A410057B5CA /* ViewController.m */; };
-		3AFC41A81A657A410057B5CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AFC41A71A657A410057B5CA /* Images.xcassets */; };
 		B8B13BCE1BFDBC0900B5BF2B /* UIViewController+RSKKeyboardAnimationObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B13BCD1BFDBC0900B5BF2B /* UIViewController+RSKKeyboardAnimationObserver.m */; settings = {ASSET_TAGS = (); }; };
-		B8B13BD01BFDBF3B00B5BF2B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B13BCF1BFDBF3B00B5BF2B /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
-		B8B13BD51BFDC00800B5BF2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B13BD31BFDC00800B5BF2B /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		B8B13BE11BFDC1DF00B5BF2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B13BD81BFDC1DF00B5BF2B /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
+		B8B13BE21BFDC1DF00B5BF2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8B13BD91BFDC1DF00B5BF2B /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
+		B8B13BE31BFDC1DF00B5BF2B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8B13BDB1BFDC1DF00B5BF2B /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
+		B8B13BE51BFDC1DF00B5BF2B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B13BDD1BFDC1DF00B5BF2B /* LaunchScreen.xib */; settings = {ASSET_TAGS = (); }; };
+		B8B13BE61BFDC1DF00B5BF2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B13BDE1BFDC1DF00B5BF2B /* main.m */; settings = {ASSET_TAGS = (); }; };
+		B8B13BE71BFDC1DF00B5BF2B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B13BE01BFDC1DF00B5BF2B /* ViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3AFC41971A657A410057B5CA /* KeyboardAnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardAnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AFC419B1A657A410057B5CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AFC419C1A657A410057B5CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3AFC419E1A657A410057B5CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		3AFC419F1A657A410057B5CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3AFC41A11A657A410057B5CA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3AFC41A21A657A410057B5CA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3AFC41A71A657A410057B5CA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B8B13BCB1BFDBC0900B5BF2B /* RSKKeyboardAnimationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSKKeyboardAnimationObserver.h; sourceTree = "<group>"; };
 		B8B13BCC1BFDBC0900B5BF2B /* UIViewController+RSKKeyboardAnimationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RSKKeyboardAnimationObserver.h"; sourceTree = "<group>"; };
 		B8B13BCD1BFDBC0900B5BF2B /* UIViewController+RSKKeyboardAnimationObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RSKKeyboardAnimationObserver.m"; sourceTree = "<group>"; };
-		B8B13BCF1BFDBF3B00B5BF2B /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
-		B8B13BD41BFDC00800B5BF2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B8B13BD71BFDC1DF00B5BF2B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B8B13BD81BFDC1DF00B5BF2B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B8B13BDA1BFDC1DF00B5BF2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B8B13BDB1BFDC1DF00B5BF2B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B8B13BDC1BFDC1DF00B5BF2B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8B13BDD1BFDC1DF00B5BF2B /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		B8B13BDE1BFDC1DF00B5BF2B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B8B13BDF1BFDC1DF00B5BF2B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B8B13BE01BFDC1DF00B5BF2B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,7 @@
 		3AFC418E1A657A410057B5CA = {
 			isa = PBXGroup;
 			children = (
-				3AFC41991A657A410057B5CA /* KeyboardAnimationDemo */,
+				B8B13BD61BFDC1DF00B5BF2B /* Classes */,
 				B8B13BB31BFD9ADD00B5BF2B /* Vendor */,
 				3AFC41981A657A410057B5CA /* Products */,
 			);
@@ -58,30 +58,6 @@
 				3AFC41971A657A410057B5CA /* KeyboardAnimationDemo.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		3AFC41991A657A410057B5CA /* KeyboardAnimationDemo */ = {
-			isa = PBXGroup;
-			children = (
-				3AFC419E1A657A410057B5CA /* AppDelegate.h */,
-				3AFC419F1A657A410057B5CA /* AppDelegate.m */,
-				3AFC41A11A657A410057B5CA /* ViewController.h */,
-				3AFC41A21A657A410057B5CA /* ViewController.m */,
-				B8B13BCF1BFDBF3B00B5BF2B /* LaunchScreen.xib */,
-				B8B13BD31BFDC00800B5BF2B /* Main.storyboard */,
-				3AFC41A71A657A410057B5CA /* Images.xcassets */,
-				3AFC419A1A657A410057B5CA /* Supporting Files */,
-			);
-			path = KeyboardAnimationDemo;
-			sourceTree = "<group>";
-		};
-		3AFC419A1A657A410057B5CA /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3AFC419B1A657A410057B5CA /* Info.plist */,
-				3AFC419C1A657A410057B5CA /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		B8B13BB31BFD9ADD00B5BF2B /* Vendor */ = {
@@ -101,6 +77,39 @@
 			);
 			name = RSKKeyboardAnimationObserver;
 			path = ../RSKKeyboardAnimationObserver;
+			sourceTree = "<group>";
+		};
+		B8B13BD61BFDC1DF00B5BF2B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B8B13BD71BFDC1DF00B5BF2B /* AppDelegate.h */,
+				B8B13BD81BFDC1DF00B5BF2B /* AppDelegate.m */,
+				B8B13BE81BFDC23100B5BF2B /* Controllers */,
+				B8B13BD91BFDC1DF00B5BF2B /* Main.storyboard */,
+				B8B13BDB1BFDC1DF00B5BF2B /* Images.xcassets */,
+				B8B13BDD1BFDC1DF00B5BF2B /* LaunchScreen.xib */,
+				B8B13BE91BFDC24A00B5BF2B /* Supporting Files */,
+			);
+			name = Classes;
+			path = RSKKeyboardAnimationObserverDemo;
+			sourceTree = "<group>";
+		};
+		B8B13BE81BFDC23100B5BF2B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B8B13BDF1BFDC1DF00B5BF2B /* ViewController.h */,
+				B8B13BE01BFDC1DF00B5BF2B /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B8B13BE91BFDC24A00B5BF2B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8B13BDC1BFDC1DF00B5BF2B /* Info.plist */,
+				B8B13BDE1BFDC1DF00B5BF2B /* main.m */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +146,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3AFC41921A657A410057B5CA /* Build configuration list for PBXProject "KeyboardAnimationDemo" */;
+			buildConfigurationList = 3AFC41921A657A410057B5CA /* Build configuration list for PBXProject "RSKKeyboardAnimationObserverDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -160,9 +169,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8B13BD01BFDBF3B00B5BF2B /* LaunchScreen.xib in Resources */,
-				3AFC41A81A657A410057B5CA /* Images.xcassets in Resources */,
-				B8B13BD51BFDC00800B5BF2B /* Main.storyboard in Resources */,
+				B8B13BE31BFDC1DF00B5BF2B /* Images.xcassets in Resources */,
+				B8B13BE51BFDC1DF00B5BF2B /* LaunchScreen.xib in Resources */,
+				B8B13BE21BFDC1DF00B5BF2B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,20 +182,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AFC41A31A657A410057B5CA /* ViewController.m in Sources */,
-				3AFC41A01A657A410057B5CA /* AppDelegate.m in Sources */,
-				3AFC419D1A657A410057B5CA /* main.m in Sources */,
+				B8B13BE71BFDC1DF00B5BF2B /* ViewController.m in Sources */,
 				B8B13BCE1BFDBC0900B5BF2B /* UIViewController+RSKKeyboardAnimationObserver.m in Sources */,
+				B8B13BE61BFDC1DF00B5BF2B /* main.m in Sources */,
+				B8B13BE11BFDC1DF00B5BF2B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B8B13BD31BFDC00800B5BF2B /* Main.storyboard */ = {
+		B8B13BD91BFDC1DF00B5BF2B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B8B13BD41BFDC00800B5BF2B /* Base */,
+				B8B13BDA1BFDC1DF00B5BF2B /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -276,7 +285,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				INFOPLIST_FILE = KeyboardAnimationDemo/Info.plist;
+				INFOPLIST_FILE = RSKKeyboardAnimationObserverDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ruslanskorb.KeyboardAnimationDemo;
@@ -289,7 +298,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				INFOPLIST_FILE = KeyboardAnimationDemo/Info.plist;
+				INFOPLIST_FILE = RSKKeyboardAnimationObserverDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ruslanskorb.KeyboardAnimationDemo;
@@ -300,7 +309,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3AFC41921A657A410057B5CA /* Build configuration list for PBXProject "KeyboardAnimationDemo" */ = {
+		3AFC41921A657A410057B5CA /* Build configuration list for PBXProject "RSKKeyboardAnimationObserverDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3AFC41B81A657A420057B5CA /* Debug */,
